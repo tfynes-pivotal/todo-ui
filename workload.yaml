@@ -1,0 +1,19 @@
+---
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+  name: todo-ui
+  namespace: default
+spec:
+  #env:
+  #- name: "BP_MAVEN_BUILD_ARGUMENTS"
+  #  value: "-Dmaven.test.skip=false package"
+  source:
+    git:
+      ref:
+        branch: main
+      url: https://github.com/tfynes-pivotal/todo-ui
